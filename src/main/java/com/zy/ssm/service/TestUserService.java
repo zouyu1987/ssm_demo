@@ -12,7 +12,9 @@ import java.util.List;
  */
 public interface TestUserService {
 
-    List<String> getAllUserName();
+    List<String> queryAllUserName();
 
-    List<TestUser> userList();
+    List<TestUser> queryUserList();
+
+    void addUser(TestUser t);
 }

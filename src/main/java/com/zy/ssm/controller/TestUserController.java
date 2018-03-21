@@ -23,14 +23,22 @@ public class TestUserController {
     @Autowired
     private TestUserService testUserService;
 
-    @RequestMapping(value="/list",method = RequestMethod.GET)
+    @RequestMapping(value="/list")
     public String getListPage(){
         return "list";
     }
 
-    @RequestMapping(value="/userList",method = RequestMethod.GET)
+    @RequestMapping(value="/userList")
     @ResponseBody
     public List<TestUser> getList(){
-        return testUserService.userList();
+        return testUserService.queryUserList();
+    }
+
+    @RequestMapping(value="/addUser")
+    @ResponseBody
+    public String addUser(){
+        TestUser t = new TestUser("qaz","wsx");
+        testUserService.addUser(t);
+        return "add a user";
     }
 }

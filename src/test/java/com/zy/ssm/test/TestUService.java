@@ -28,7 +28,7 @@ public class TestUService {
 
     @Test
     public void getTN(){
-        List<String> mm= testUserService.getAllUserName();
+        List<String> mm= testUserService.queryAllUserName();
         logger.info("AllName={}",mm.toString());
     }
 }

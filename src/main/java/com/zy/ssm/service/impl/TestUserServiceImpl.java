@@ -24,8 +24,12 @@ public class TestUserServiceImpl implements TestUserService {
     private TestUserDao dao;
 
 
-    public List<TestUser> userList() {
+    public List<TestUser> queryUserList() {
         return dao.getUsers();
+    }
+
+    public void addUser(TestUser t) {
+        dao.addUser(t);
     }
 
     /**
@@ -34,9 +38,7 @@ public class TestUserServiceImpl implements TestUserService {
      * 2：保证事务方法的执行时间尽可能短，不要穿插其他网络操作 如HTTP操作或者剥离事务外部方法
      * 3：不是所有的方法都需要事务，如果有一条修改操作 只读操作 不需要事务控制
      */
-
-    @Transactional
-    public List<String> getAllUserName() {
+    public List<String> queryAllUserName() {
         List<TestUser> t = dao.getUsers();
 
         List<String> allName = new ArrayList<String>();
